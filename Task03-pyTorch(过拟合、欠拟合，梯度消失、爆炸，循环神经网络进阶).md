@@ -1,3 +1,7 @@
+---
+
+---
+
 ### Task03-(过拟合、欠拟合，梯度消失、爆炸，循环神经网络进阶)
 
 #### **过拟合欠拟合及其解决方案**
@@ -28,9 +32,9 @@
 
 影响因素：
 
-1、模型复杂度   <img src="C:\Users\Young\Desktop\动手深度学习\Task03_Images\clip_image002.png" alt="img" style="zoom: 80%;" />
+1、模型复杂度   <img src="Task03/clip_image002.png" alt="img" style="zoom: 80%;" />
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task03_Images\image-20200216125927434.png" alt="image-20200216125927434"  />
+<img src="Task03/image-20200216125927434.png" alt="image-20200216125927434"  />
 
 2、训练数据集规模
 
@@ -42,7 +46,7 @@
 
 L2范数正则化在模型原损失函数基础上添加L2范数惩罚项，从而得到训练所需要最小化的函数。L2范数惩罚项指的是模型权重参数每个元素的平方和与一个正的常数的乘积。
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task03_Images\image-20200216130055987.png" alt="image-20200216130055987"  />
+<img src="Task03/image-20200216130055987.png" alt="image-20200216130055987"  />
 
 其中w1,w2是权重参数，b是偏差参数，样本i的输入为x1(i),x2(i)，标签为y(i)，样本数为n。将权重参数用向量w=[w1,w2]表示。
 
@@ -54,7 +58,7 @@ optimizer_b = torch.optim.SGD(params=[net.bias], lr=lr)  # 不对偏差参数衰
 
 2、丢弃法
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task03_Images\图片1.png" style="zoom: 80%;" />
+<img src="Task03/图片1.png" style="zoom: 80%;" />
 
 ```
 net = nn.Sequential(
@@ -88,7 +92,7 @@ l **措施：参数随机初始化**
 
 原理：
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task03_Images\图片2.png" style="zoom:150%;" />
+<img src="Task03/图片2.png" style="zoom:150%;" />
 
 1、PyTorch的默认随机初始化**
 
@@ -114,9 +118,9 @@ RNN网络存在的问题：
 
 #### GRU: ⻔控循环神经⽹络：捕捉时间序列中时间步距离较大的依赖关系
 
-<img src="Task03_Images/QM30lmF15VY2oLk2EUxn4.png" style="zoom:80%;" />
+<img src="Task03/QM30lmF15VY2oLk2EUxn4.png" style="zoom:80%;" />
 
-<img src="Task03_Images/image-20200216131828214.png" alt="image-20200216131828214" style="zoom:80%;" />
+<img src="Task03/image-20200216131828214.png" alt="image-20200216131828214" style="zoom:80%;" />
 
 • 重置⻔有助于捕捉时间序列⾥短期的依赖关系；
 • 更新⻔有助于捕捉时间序列⾥⻓期的依赖关系。
@@ -139,9 +143,9 @@ d2l.train_and_predict_rnn_pytorch(model, num_hiddens, vocab_size, device,
 
 #### LSTM **长短期记忆long short-term memory** 
 
-<img src="Task03_Images/RnzRBNhQdxe50EhKTpKbP.png" style="zoom:80%;" />
+<img src="Task03/RnzRBNhQdxe50EhKTpKbP.png" style="zoom:80%;" />
 
-<img src="Task03_Images/image-20200216132149382.png" alt="image-20200216132149382" style="zoom:80%;" />
+<img src="Task03/image-20200216132149382.png" alt="image-20200216132149382" style="zoom:80%;" />
 
 遗忘门:控制上一时间步的记忆细胞 输入门:控制当前时间步的输入
 输出门:控制从记忆细胞到隐藏状态
@@ -165,9 +169,9 @@ d2l.train_and_predict_rnn_pytorch(model, num_hiddens, vocab_size, device,
 
 #### 深度循环神经网络
 
-<img src="Task03_Images/9e6IAtyI2FvEyklAWHoSH.png" style="zoom:80%;" />
+<img src="Task03/9e6IAtyI2FvEyklAWHoSH.png" style="zoom:80%;" />
 
-<img src="Task03_Images/image-20200216132400939.png" alt="image-20200216132400939" style="zoom:80%;" />
+<img src="Task03/image-20200216132400939.png" alt="image-20200216132400939" style="zoom:80%;" />
 
 PyTorch简洁实现（相比LSTM多了**num_layers**参数）
 
@@ -188,9 +192,9 @@ d2l.train_and_predict_rnn_pytorch(model, num_hiddens, vocab_size, device,
 
 #### 双向循环神经网络
 
-<img src="Task03_Images/L_hDgQzNt3BSfkeNY9tFP.png" style="zoom:80%;" />
+<img src="Task03/L_hDgQzNt3BSfkeNY9tFP.png" style="zoom:80%;" />
 
-<img src="Task03_Images/image-20200216132710225.png" alt="image-20200216132710225" style="zoom:67%;" />
+<img src="Task03/image-20200216132710225.png" alt="image-20200216132710225" style="zoom:67%;" />
 
 PyTorch简洁实现（相比GRU多了**bidirectional=True**）
 

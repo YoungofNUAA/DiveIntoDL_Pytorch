@@ -40,17 +40,17 @@ src_vocab = build_vocab(source)
 encoder：输入到隐藏状态
 decoder：隐藏状态到输出
 
-![](C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5jcat3c8m.png)
+![](Task04/q5jcat3c8m.png)
 
 #### Sequence to Sequence模型
 
 1、训练
 
-![](C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5jc7a53pt.png)
+![](Task04/q5jc7a53pt.png)
 
 2、预测
 
-![](C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5jcecxcba.png)
+![](Task04/q5jcecxcba.png)
 
 #### Encoder
 
@@ -114,11 +114,11 @@ def SequenceMask(X, X_len,value=0):
 
 1、贪心算法
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5jchqoppn.png" style="zoom:80%;" />
+<img src="Task04/q5jchqoppn.png" style="zoom:80%;" />
 
 2、贪心算法+维特比算法
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5jcia86z1.png" style="zoom:80%;" />
+<img src="Task04/q5jcia86z1.png" style="zoom:80%;" />
 
 ### 注意力机制与Seq2Seq模型
 
@@ -130,15 +130,15 @@ def SequenceMask(X, X_len,value=0):
 
 1、询问（query） 2、键值对（key-value pairs）
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217135647671.png" alt="image-20200217135647671"  />
+<img src="Task04/image-20200217135647671.png" alt="image-20200217135647671"  />
 
-![image-20200217135755420](C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217135755420.png)
+![image-20200217135755420](Task04/image-20200217135755420.png)
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5km4ooyu2.png" style="zoom:80%;" />
+<img src="Task04/q5km4ooyu2.png" style="zoom:80%;" />
 
 #### 点积注意力
 
-![image-20200217135925638](C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217135925638.png)
+![image-20200217135925638](Task04/image-20200217135925638.png)
 
 ```python
 class DotProductAttention(nn.Module): 
@@ -162,7 +162,7 @@ class DotProductAttention(nn.Module):
 
 #### 多层感知机注意力
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217140128801.png" alt="image-20200217140128801"  />
+<img src="Task04/image-20200217140128801.png" alt="image-20200217140128801"  />
 
 ```python
 class MLPAttention(nn.Module):  
@@ -190,9 +190,9 @@ class MLPAttention(nn.Module):
 
 本节中将注意机制添加到sequence to sequence 模型中，以显式地使用权重聚合states。下图展示encoding 和decoding的模型结构，在时间步为t的时候。此刻attention layer保存着encodering看到的所有信息——encoding的每一步输出。在decoding阶段，解码器的t时刻的隐藏状态被当作query，encoder的每个时间步的hidden states作为key和value进行attention聚合. Attetion model的输出当作成上下文信息context vector，并与解码器输入Dt拼接起来一起送到解码器：
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5km7o8z93.png" style="zoom:80%;" />
+<img src="Task04/q5km7o8z93.png" style="zoom:80%;" />
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5km8dihlr.png" style="zoom:80%;" />
+<img src="Task04/q5km8dihlr.png" style="zoom:80%;" />
 
 ### Transformer
 
@@ -201,7 +201,7 @@ class MLPAttention(nn.Module):
 - CNNs 易于并行化，却不适合捕捉变长序列内的依赖关系。
 - RNNs 适合捕捉长距离变长序列的依赖，但是却难以实现并行化处理序列。
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5kpbj2cj5.png" style="zoom:80%;" />
+<img src="Task04/q5kpbj2cj5.png" style="zoom:80%;" />
 
 与Seq2Seq的区别
 
@@ -215,24 +215,24 @@ class MLPAttention(nn.Module):
 
 自注意力模型是一个正规的注意力模型，序列的每一个元素对应的key，value，query是完全一致的。与循环神经网络相比，自注意力对每个元素输出的计算是并行的，所以我们可以高效的实现这个模块。
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5kpckv38q.png" style="zoom:80%;" />
+<img src="Task04/q5kpckv38q.png" style="zoom:80%;" />
 
 **多头注意力层**包含h个并行的自注意力层，每一个这种层被成为一个head
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5kpcsozid.png" style="zoom:80%;" />
+<img src="Task04/q5kpcsozid.png" style="zoom:80%;" />
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217141123141.png" alt="image-20200217141123141" style="zoom:80%;" />
+<img src="Task04/image-20200217141123141.png" alt="image-20200217141123141" style="zoom:80%;" />
 
 #### 基于位置的前馈网络
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217141226769.png" alt="image-20200217141226769" style="zoom:80%;" />
+<img src="Task04/image-20200217141226769.png" alt="image-20200217141226769" style="zoom:80%;" />
 
 #### Add and Norm
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217141315767.png" alt="image-20200217141315767" style="zoom:80%;" />
+<img src="Task04/image-20200217141315767.png" alt="image-20200217141315767" style="zoom:80%;" />
 
 #### 位置编码
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\q5kpe0lu38.png" style="zoom:80%;" />
+<img src="Task04/q5kpe0lu38.png" style="zoom:80%;" />
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task04_Images\image-20200217141423817.png" alt="image-20200217141423817" style="zoom:80%;" />
+<img src="Task04/image-20200217141423817.png" alt="image-20200217141423817" style="zoom:80%;" />

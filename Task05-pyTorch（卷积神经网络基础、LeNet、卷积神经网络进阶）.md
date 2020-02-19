@@ -4,7 +4,7 @@
 
 **二维互相关运算**
 
-![](C:\Users\Young\Desktop\动手深度学习\Task05_Images\q5nfdbhcw5.png)
+![](Task05/q5nfdbhcw5.png)
 
 二维互相关（cross-correlation）运算的输入是一个二维输入数组和一个二维核（kernel）数组，输出也是一个二维数组，其中核数组通常称为卷积核或过滤器（filter）。卷积核的尺寸通常小于输入数组，卷积核在输入数组上滑动，在每个位置上，卷积核与该位置处的输入子数组按元素相乘并求和，得到输出数组中相应位置的元素。
 
@@ -32,33 +32,33 @@ def corr2d(X, K):
 
 **特征图与感受野**
 
-![](C:\Users\Young\Desktop\动手深度学习\Task05_Images\q5nfdbhcw5.png)
+![](Task05/q5nfdbhcw5.png)
 
-![image-20200218190447737](C:\Users\Young\Desktop\动手深度学习\Task05_Images\image-20200218190447737.png)
+<img src="Task05/image-20200218190447737.png" alt="image-20200218190447737" style="zoom:80%;" />
 
 **填充**
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task05_Images\q5nfl6ejy4.png" style="zoom:80%;" />
+<img src="Task05/q5nfl6ejy4.png" style="zoom:80%;" />
 
-![image-20200218190712498](C:\Users\Young\Desktop\动手深度学习\Task05_Images\image-20200218190712498.png)
+<img src="Task05/image-20200218190712498.png" alt="image-20200218190712498" style="zoom:80%;" />
 
 **步幅**
 
-<img src="C:\Users\Young\Desktop\动手深度学习\Task05_Images\image-20200218190855160.png" alt="image-20200218190855160" style="zoom:80%;" />
+<img src="Task05/image-20200218190855160.png" alt="image-20200218190855160" style="zoom:80%;" />
 
-<img src="C:\Users\Young\AppData\Roaming\Typora\typora-user-images\image-20200218190931890.png" alt="image-20200218190931890" style="zoom:80%;" />
+<img src="Task05/image-20200218190931890.png" alt="image-20200218190931890" style="zoom:80%;" />
 
 **多输入通道与多输出通道**
 
 *多输入通道*
 
-<img src="Task05_Images/image-20200218191044125.png" alt="image-20200218191044125" style="zoom:80%;" />
+<img src="Task05/image-20200218191044125.png" alt="image-20200218191044125" style="zoom:80%;" />
 
 *多输出通道*
 
-![image-20200218191156105](Task05_Images/image-20200218191156105.png)
+<img src="Task05/image-20200218191156105.png" alt="image-20200218191156105" style="zoom:80%;" />
 
-![image-20200218191250204](Task05_Images/image-20200218191250204.png)
+<img src="Task05/image-20200218191250204.png" alt="image-20200218191250204" style="zoom:80%;" />
 
 **卷积层与全连接层对比**
 
@@ -96,7 +96,7 @@ Y = pool2d(X)
 - 卷积层保留输入形状。
 - 卷积层通过滑动窗口将同一卷积核与不同位置的输入重复计算，从而避免参数尺寸过大。
 
-![](Task05_Images/q5ndwsmsao.png)
+![](Task05/q5ndwsmsao.png)
 
 卷积层块里的基本单位是卷积层后接平均池化层：卷积层用来识别图像里的空间模式，如线条和物体局部，之后的平均池化层则用来降低卷积层对位置的敏感性。
 
@@ -119,11 +119,11 @@ LeNet: 在大的真实数据集上的表现并不尽如⼈意。
 3. 用Dropout来控制全连接层的模型复杂度。
 4. 引入数据增强，如翻转、裁剪和颜色变化，从而进一步扩大数据集来缓解过拟合。
 
-<img src="Task05_Images/q5kv4gpx88.png" style="zoom:80%;" />
+<img src="Task05/q5kv4gpx88.png" style="zoom:80%;" />
 
 #### 使用重复基础块的网络（VGG）
 
-<img src="Task05_Images/q5l6vut7h1.png" style="zoom:80%;" />
+<img src="Task05/q5l6vut7h1.png" style="zoom:80%;" />
 
 #### 网络中的网络(NiN)
 
@@ -133,7 +133,7 @@ NiN：串联多个由卷积层和“全连接”层构成的小⽹络来构建�
 
 "全连接"：由1x1卷积核等效的全连接层，保证输入和输出维度相等。
 
-<img src="Task05_Images/q5l6u1p5vy.png" style="zoom:80%;" />
+<img src="Task05/q5l6u1p5vy.png" style="zoom:80%;" />
 
 **1×1卷积核作用**
 1.放缩通道数：通过控制卷积核的数量达到通道数的放缩。
@@ -153,7 +153,7 @@ def nin_block(in_channels, out_channels, kernel_size, stride, padding):
 
 #### GoogLeNet
 
-<img src="Task05_Images/q5l6uortw.png" style="zoom:80%;" />
+<img src="Task05/q5l6uortw.png" style="zoom:80%;" />
 
 1. 由Inception基础块组成。
 
@@ -188,4 +188,4 @@ def nin_block(in_channels, out_channels, kernel_size, stride, padding):
 
    **完整模型**
 
-<img src="Task05_Images/q5l6x0fyyn.png" style="zoom:80%;" />
+<img src="Task05/q5l6x0fyyn.png" style="zoom:80%;" />
